@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports 
+    http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" 
+    name="ReporteVentas" pageWidth="595" pageHeight="842" columnWidth="515" leftMargin="40" rightMargin="40" topMargin="50" bottomMargin="50" uuid="123e4567-e89b-12d3-a456-426614174001">
+
+    <!-- Parámetros del reporte -->
+    <parameter name="REPORT_DATE" class="java.util.Date"/>
+
+    <!-- Campos -->
+    <field name="ID_Venta" class="java.lang.String"/>
+    <field name="Nombre_Cliente" class="java.lang.String"/>
+    <field name="FechaFormateada" class="java.lang.String"/>
+    <field name="Total" class="java.lang.String"/>
+
+    <!-- Título del reporte -->
+    <title>
+        <band height="30">
+            <staticText>
+                <reportElement x="0" y="0" width="515" height="30"/>
+                <textElement textAlignment="Center">
+                    <font size="16" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Reporte de Ventas]]></text>
+            </staticText>
+        </band>
+    </title>
+
+    <!-- Cabecera de columnas -->
+    <columnHeader>
+        <band height="20">
+            <staticText>
+                <reportElement x="0" y="0" width="100" height="20"/>
+                <textElement>
+                    <font size="12" isBold="true"/>
+                </textElement>
+                <text><![CDATA[ID Venta]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="100" y="0" width="200" height="20"/>
+                <textElement>
+                    <font size="12" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Nombre Cliente]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="300" y="0" width="115" height="20"/>
+                <textElement>
+                    <font size="12" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Fecha]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="415" y="0" width="100" height="20"/>
+                <textElement>
+                    <font size="12" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Total]]></text>
+            </staticText>
+        </band>
+    </columnHeader>
+
+    <!-- Detalles -->
+    <detail>
+        <band height="20">
+            <textField>
+                <reportElement x="0" y="0" width="100" height="20"/>
+                <textFieldExpression><![CDATA[$F{ID_Venta}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="100" y="0" width="200" height="20"/>
+                <textFieldExpression><![CDATA[$F{Nombre_Cliente}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="300" y="0" width="115" height="20"/>
+                <textFieldExpression><![CDATA[$F{FechaFormateada}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="415" y="0" width="100" height="20"/>
+                <textFieldExpression><![CDATA[$F{Total}]]></textFieldExpression>
+            </textField>
+        </band>
+    </detail>
+</jasperReport>

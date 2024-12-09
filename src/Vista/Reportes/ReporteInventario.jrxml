@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports 
+    http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" 
+    name="ReporteBasico" pageWidth="595" pageHeight="842" columnWidth="515" leftMargin="40" rightMargin="40" topMargin="50" bottomMargin="50" uuid="123e4567-e89b-12d3-a456-426614174000">
+
+    <!-- Parámetros del reporte -->
+    <parameter name="REPORT_DATE" class="java.util.Date"/>
+    
+    <!-- Campos -->
+    <field name="ID_Producto" class="java.lang.String"/>
+    <field name="Producto" class="java.lang.String"/>
+    <field name="Última_Importación" class="java.lang.String"/>
+    <field name="Cantidad" class="java.lang.String"/>
+
+    <!-- Título del reporte -->
+    <title>
+        <band height="30">
+            <staticText>
+                <reportElement x="0" y="0" width="515" height="30"/>
+                <textElement textAlignment="Center">
+                    <font size="16" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Reporte Básico]]></text>
+            </staticText>
+        </band>
+    </title>
+
+    <!-- Cabecera de columnas -->
+    <columnHeader>
+        <band height="20">
+            <staticText>
+                <reportElement x="0" y="0" width="100" height="20"/>
+                <textElement>
+                    <font size="12" isBold="true"/>
+                </textElement>
+                <text><![CDATA[ID Producto]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="100" y="0" width="200" height="20"/>
+                <textElement>
+                    <font size="12" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Producto]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="300" y="0" width="115" height="20"/>
+                <textElement>
+                    <font size="12" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Última Importación]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="415" y="0" width="100" height="20"/>
+                <textElement>
+                    <font size="12" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Cantidad]]></text>
+            </staticText>
+        </band>
+    </columnHeader>
+
+    <!-- Detalles -->
+    <detail>
+        <band height="20">
+            <textField>
+                <reportElement x="0" y="0" width="100" height="20"/>
+                <textFieldExpression><![CDATA[$F{ID_Producto}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="100" y="0" width="200" height="20"/>
+                <textFieldExpression><![CDATA[$F{Producto}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="300" y="0" width="115" height="20"/>
+                <textFieldExpression><![CDATA[$F{Última_Importación}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="415" y="0" width="100" height="20"/>
+                <textFieldExpression><![CDATA[$F{Cantidad}]]></textFieldExpression>
+            </textField>
+        </band>
+    </detail>
+
+    <!-- Pie de página -->
+    <pageFooter>
+        <band height="20">
+            <!-- Fecha del reporte -->
+            <textField>
+                <reportElement x="0" y="0" width="200" height="20"/>
+                <textFieldExpression><![CDATA[new java.text.SimpleDateFormat("yyyy-MM-dd").format($P{REPORT_DATE})]]></textFieldExpression>
+            </textField>
+            <!-- Número de página -->
+            <textField>
+                <reportElement x="315" y="0" width="200" height="20"/>
+                <textFieldExpression><![CDATA["Página " + $V{PAGE_NUMBER}]]></textFieldExpression>
+            </textField>
+        </band>
+    </pageFooter>
+</jasperReport>
